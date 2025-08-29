@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FD Holders</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    .header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .footer {
+      background-color: #343a40;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 20px;
+    }
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 20px;
+    }
+    .table th {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>GPS Teacher Co-Operative Bank Bhalki</h1>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Bank Admin Dashboard</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/admin_dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/generate_report">Reports</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-4">FD Holders Information</h1>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>FD ID</th>
+        <th>Account ID</th>
+        <th>Account Holder</th>
+        <th>Phone</th>
+        <th>FD Amount</th>
+        <th>Interest Rate</th>
+        <th>Interest Amount</th>
+        <th>FD Date</th>
+        <th>Maturity Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in results %}
+      <tr>
+        <td>{{ row.fd_id }}</td>
+        <td>{{ row.account_id }}</td>
+        <td>{{ row.full_name }}</td>
+        <td>{{ row.phone }}</td>
+        <td>{{ row.total_amount or 0 }}</td>
+        <td>{{ row.interest_rate or 0 }}%</td>
+        <td>{{ row.interest_amount or 0 }}</td>
+        <td>{{ row.fd_date }}</td>
+        <td>{{ row.maturity_date }}</td>
+       
+        <td>
+          {% if row.fd_id %}
+          <a href="{{ url_for('edit_fd', fd_id=row.fd_id) }}" class="btn btn-sm btn-primary">Edit</a>
+          {% else %}
+          <span class="text-muted">No FD ID</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<footer class="footer mt-5 text-center bg-dark text-white py-3">
+  <p class="mb-0">
+    &copy; 2025 GPS Teacher Co-Operative Bank Bhalki. All rights reserved. <br>
+    Powered by <strong>ViSHAL WAGARAJ</strong> –
+    <a href="https://www.vswdatasolutions.in" target="_blank" class="text-warning text-decoration-none">
+      www.vswdatasolutions.in
+    </a>
+  </p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

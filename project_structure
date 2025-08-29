@@ -1,0 +1,91 @@
+bms_app/
+├── app.py                        # Main entry point (initializes the app & blueprints)
+├── config.py                     # Configuration file (secret keys, DB URI)
+├── models/                       # SQLAlchemy database models (if used)
+│   └── __init__.py
+├── modules/                      # All route blueprints organized by feature
+│   ├── __init__.py
+│   ├── auth/                     # Login, logout, signup
+│   │   ├── routes.py
+│   │   └── forms.py              # WTForms (optional)
+│   ├── accounts/
+│   │   ├── routes.py
+│   │   └── services.py           # Account DB logic
+│   ├── loans/
+│   │   ├── routes.py
+│   │   └── services.py
+│   ├── transactions/
+│   │   ├── routes.py
+│   │   └── services.py
+│   ├── fd/
+│   │   ├── routes.py
+│   │   └── services.py
+│   └── reports/
+│       └── routes.py
+├── templates/
+│   ├── auth/
+│   │   ├── login.html
+│   │   └── signup.html
+│   ├── accounts/
+│   │   ├── create_account.html
+│   │   └── account_list.html
+│   ├── loans/
+│   │   ├── loans.html
+│   │   └── pay_emi.html
+│   ├── fd/
+│   │   └── create_fd.html
+│   ├── transactions/
+│   │   └── transaction.html
+│   ├── reports/
+│   │   └── report.html
+│   └── base.html                 # Shared layout template
+├── static/
+│   ├── css/
+│   └── js/
+├── utils/
+│   ├── database.py               # DB connection & helper functions
+│   └── file_export.py            # Excel export, PDF generation, etc.
+├── instance/
+│   └── bank.db                   # SQLite database (or use PostgreSQL in prod)
+├── requirements.txt
+└── run.py                        # Alternate start script (optional)
+
+
+
+
+
+BMS_Application/
+├── app.py                       # Main Flask application (with all routes and logic)
+├── db/
+│   └── bank.db                  # SQLite database file
+├── templates/
+│   ├── admin_dashboard.html     # Admin dashboard UI
+│   ├── accounts.html            # List all accounts
+│   ├── create_account.html      # Form to create new account
+│   ├── edit_account.html        # Edit account details
+│   ├── loans.html               # Loan issue form
+│   ├── pay_emi.html             # EMI payment form
+│   ├── loan_details.html        # View loan and EMI history
+│   ├── fd_holders.html          # List FD accounts
+│   ├── create_fd.html           # Create FD account
+│   ├── edit_fd.html             # Edit FD details
+│   ├── customer_profile.html    # Detailed customer profile view
+│   ├── search.html              # Search page
+│   ├── report.html              # Visual report dashboard
+│   ├── close_account.html       # Close account form
+│   ├── login.html               # Admin login page
+│   ├── signup.html              # Admin registration
+│   ├── transaction.html         # Deposit/Withdrawal
+│   ├── transactions.html        # Mini statement / transaction log
+│   ├── account_list.html        # List of all accounts
+│   ├── edit_record.html         # Universal table record editor
+│   ├── view_fd.html             # Single FD view
+│   ├── pay_emi_premium.html     # Premium EMI payment table
+│   └── index.html               # Homepage with download button
+├── static/
+│   ├── css/
+│   └── js/
+├── cert.pem                     # SSL certificate
+├── key.pem                      # SSL private key
+├── requirements.txt             # Python dependencies (Flask, pandas, etc.)
+└── README.md                    # Project instructions (optional)

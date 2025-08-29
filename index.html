@@ -1,0 +1,2954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Croptell Crop Science | Premium Agricultural Solutions</title>
+    <meta name="description" content="Premium agricultural products for healthy crops and higher yields">
+    <meta name="keywords" content="agriculture, crop science, insecticides, bio-stimulants, micronutrients, organic farming">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============ BASE STYLES ============ */
+        :root {
+            --primary: #1a4314;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom:auto;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        /* ============ HEADER ============ */
+        .main-header {
+            background-color: #143305;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.5rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        
+        .logo-svg {
+            width: 60px;
+            height: 60px;
+        }
+        
+        
+        /* SVG styling with CSS */
+        .logo-svg path {
+            fill: #d4af37; /* Golden color for the leaf */
+            transition: fill 0.3s ease;
+        }
+        
+        .logo-svg circle {
+            fill: #1a4314; /* Dark green for the background */
+            transition: fill 0.3s ease;
+        }
+        
+        .logo-svg text {
+            fill: #f7f300; /* Yellow for text */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            transition: fill 0.3s ease;
+        }
+        
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            color: #f7f300;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: var(--secondary);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+
+
+
+
+        .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem; /* Adds space below the title */
+    line-height: 1.3;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem; /* Adds space below the subtitle */
+    color: rgba(255,255,255,0.9);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+        /* ============ HERO BANNER ============ */
+        .hero-banner {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('../assets/images/banners/Hero.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(24, 119, 9, 0.8) 0%, rgba(77, 60, 4, 0.89) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            padding: 0 120px;
+           
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 5.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============ BUTTONS ============ */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: 2px solid var(--secondary);
+        }
+
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============ PRODUCT GRID ============ */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            padding: 1.5rem;
+            background: #f9f9f9;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-category {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            margin-top: auto;
+            font-weight: 600;
+        }
+
+        .product-btn:hover {
+            background: #0f2a0c;
+        }
+
+        /* ============ BENEFITS SECTION ============ */
+        .features {
+            background-color: var(--light-gray);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        /* .testimonial-text::before {
+            content: """;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: rgba(255,255,255,0.2);
+            font-family: serif;
+            line-height: 1;
+        } */
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* ============ CTA SECTION ============ */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(rgba(26, 67, 20, 0.9), rgba(26, 67, 20, 0.9)), 
+                        url('../assets/images/banners/Hero.png') center/cover no-repeat;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* ============ FOOTER ============ */
+        .site-footer {
+            background-color: #1f3622ff;
+            color: #ffffff;
+            padding: 40px 0 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-heading {
+            color: #f8c537;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #f8c537;
+        }
+
+        .footer-links {
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #d6d6d6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f8c537;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            width: 16px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+        }
+
+        /* ============ RESPONSIVE ADJUSTMENTS ============ */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .main-nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-banner {
+                height: 20vh;
+                min-height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+            }
+        }
+
+
+    /* ============ HERO SLIDER ============ */
+    .hero-slider {
+        position: relative;
+        height: 90vh;
+        min-height: 700px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .slider-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--white);
+    }
+
+    .slide.active {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        z-index: 0;
+    }
+
+    .slide-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        padding: 0 2rem;
+        animation: fadeInUp 1s ease;
+    }
+
+    /* Slider Navigation Dots */
+    .slider-dots {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 3;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .dot.active {
+        background: var(--secondary);
+        transform: scale(1.2);
+    }
+
+    /* Animation for slider content */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero-slider {
+            height: 70vh;
+            min-height: 500px;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    /* ====== HEADER LOGO STYLES ====== */
+.main-header {
+    background-color: #143305; /* or your theme color */
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+.logo img {
+    position: right; /* Takes the logo out of the normal flow */
+    height: 150pxpx;
+    width: 60px;
+    top: 100; /* Position from the top of the header */
+    left: 120px; /* Position from the left of the header */
+    z-index: 100; /* Ensures the logo sits on top of other elements */
+}
+
+.logo span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #006400; /* dark green or brand color */
+    letter-spacing: 1px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #28a745; /* green hover */
+}
+
+
+
+
+
+
+/* ============ UPDATED HEADER STYLES ============ */
+        .main-header {
+            background-color: #143305;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 55px; /* Slightly larger logo */
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-left: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem; /* Increased spacing between menu items */
+        }
+
+        .main-nav a {
+            color: #f7f300;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .main-nav a:hover {
+            color: var(--secondary);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px; /* Thicker underline */
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu button (hidden by default) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* For mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        /* Rest of your CSS remains the same... */
+
+        /* ============ RESPONSIVE ADJUSTMENTS ============ */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.5rem 1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                transition: all 0.4s ease;
+                z-index: 999;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+            
+            .main-nav a {
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+                display: block;
+            }
+            
+            .logo img {
+                height: 45px;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .hero-banner {
+                height: 20vh;
+                min-height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+            }
+        }
+
+        /* ============ BASE STYLES ============ */
+        :root {
+            --primary: #1a4314;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ============ UPDATED HEADER STYLES ============ */
+        .main-header {
+            background-color:#143305;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.8rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .logo-text span:first-child {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .logo-text span:last-child {
+            color: var(--secondary);
+            font-weight: 400;
+            font-size: 1.8rem;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .main-nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .main-nav a:hover {
+            color: var(--secondary);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu button (hidden by default) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* ============ RESPONSIVE ADJUSTMENTS ============ */
+        @media (max-width: 992px) {
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text span:last-child {
+                font-size: 1.5rem;
+            }
+            
+            .main-nav ul {
+                gap: 1.8rem;
+            }
+            
+            .main-nav a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.5rem 1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                transition: all 0.4s ease;
+                z-index: 999;
+                padding: 2rem;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .main-nav a {
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+                display: block;
+            }
+            
+            .logo-text {
+                font-size: 1.6rem;
+            }
+            
+            .logo-text span:last-child {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .logo-text span:last-child {
+                font-size: 1.1rem;
+            }
+        }
+
+
+
+
+
+
+
+        /* ============ BASE STYLES ============ */
+        :root {
+            --primary: #1a4314;
+            --secondary: #d4af37;
+            --accent: #3a7c2e;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: auto;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        /* ============ IMPROVED HEADER STYLES ============ */
+        .main-header {
+            background-color: #143305;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.8rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .logo-icon i {
+            color: var(--secondary);
+            font-size: 28px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+        }
+
+        .main-nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .main-nav a:hover {
+            color: var(--secondary);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu button (hidden by default) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--light-gray);
+        }
+
+        /* ============ HERO BANNER ============ */
+        .hero-banner {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 67, 20, 0.85) 0%, rgba(77, 60, 4, 0.85) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============ BUTTONS ============ */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: 2px solid var(--secondary);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .cta-button i {
+            margin-right: 8px;
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* ============ RESPONSIVE ADJUSTMENTS ============ */
+        @media (max-width: 992px) {
+            .logo-main {
+                font-size: 1.7rem;
+            }
+            
+            .logo-sub {
+                font-size: 1rem;
+            }
+            
+            .main-nav ul {
+                gap: 1.8rem;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.5rem 1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                transition: all 0.4s ease;
+                z-index: 999;
+                padding: 2rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 1.8rem;
+            }
+            
+            .main-nav a {
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+                display: block;
+                text-align: center;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-icon i {
+                font-size: 24px;
+            }
+            
+            .logo-main {
+                font-size: 1.5rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.9rem;
+            }
+            
+            .hero-banner {
+                height: 85vh;
+                min-height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-main {
+                font-size: 1.4rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.8rem;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                margin-right: 10px;
+            }
+            
+            .logo-icon i {
+                font-size: 20px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* General Layout */
+body {
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.main-header {
+  background: #1a4314;
+  color: #fff;
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo-img {
+  height: 50px;
+  margin-right: 0.5rem;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Navigation */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #d4af37;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  display: none; /* hidden on desktop */
+  cursor: pointer;
+}
+
+/* Content */
+.content {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1a4314;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  background: #f8f8f8;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature i {
+  font-size: 2rem;
+  color: #1a4314;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  margin: 0.5rem 0;
+  color: #1a4314;
+}
+
+/* -------------------
+   Responsive Menu
+------------------- */
+@media (max-width: 768px) {
+  .main-nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background: #1a4314;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .main-nav.active {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+    </style>
+<body>
+
+
+
+
+
+
+
+
+
+    <main class="main-content">
+        <!-- Hero Banner -->
+
+
+    <section class="hero-slider">
+    <div class="slider-container">
+        <!-- Slide 1 -->
+        <div class="slide active" style="background-image: url('../assets/images/banners/erwan-hesry-1q75BReKpms-unsplash.jpg')">
+            <div class="slide-content">
+                <h1 class="hero-title">Premium Agricultural Solutions</h1>
+                <p class="hero-subtitle">Welcome to Croptell CropScience - Enhancing crop health and productivity with scientifically formulated products</p>
+                <div class="hero-cta">
+                    <a href="#products" class="cta-button">View Products</a>
+                    <a href="#contact" class="cta-button secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('../assets/images/banners/irewolede-PvwdlXqo85k-unsplash.jpg')">
+            <div class="slide-content">
+                <h1 class="hero-title">Innovative Crop Protection</h1>
+                <p class="hero-subtitle">Advanced formulations to protect your crops from pests and diseases while maximizing yield potential</p>
+                <div class="hero-cta">
+                    <a href="#products" class="cta-button">View Products</a>
+                    <a href="#contact" class="cta-button secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('../assets/images/banners/meric-tuna-CE1OvMrZumQ-unsplash.jpg')">
+            <div class="slide-content">
+                <h1 class="hero-title">Sustainable Farming Solutions</h1>
+                <p class="hero-subtitle">Environmentally friendly products that promote sustainable agriculture and soil health</p>
+                <div class="hero-cta">
+                    <a href="#products" class="cta-button">View Products</a>
+                    <a href="#contact" class="cta-button secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Navigation Dots -->
+        <div class="slider-dots">
+            <div class="dot active" data-slide="0"></div>
+            <div class="dot" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+        </div>
+    </div>
+</section>
+        <!-- <section class="hero-banner">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2 class="hero-title">Premium Agricultural Solutions</h2>
+                <p class="hero-subtitle">Well-come to Croptell CropScience Enhancing crop health and productivity with scientifically formulated products</p>
+                <div class="hero-cta">
+                    <a href="#products" class="cta-button">View Products</a>
+                    <a href="#contact" class="cta-button secondary">Contact Us</a>
+                </div>
+            </div>
+        </section> -->
+
+        <body>
+    <div class="container">
+        <section id="products">
+            <div class="section-title">
+                <h2>Our Featured Products</h2>
+                <p>High-quality agricultural inputs for optimal crop performance</p>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img-container">
+                        
+                        <img src="../assets/images/products/champion_7.png" alt="CHAMPION 7" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Champion 7 (Emamectin Benzoate 1.9% EC)</h3>
+                        <p class="product-description">Advanced insecticide formulation for effective pest control in a wide range of crops.</p>
+                        <a href="/admin/products/champion_7.php" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img-container">
+                     
+                        <img src="../assets/images/products/p2.png" alt="Enamectin Benzoate" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">CROPTELL GOLD – Organic Soil Improver</h3>
+                        <p class="product-description">“CROPTELL GOLD – An organic soil improver that boosts fertility, growth, and yield naturally.”</p>
+                        <a href="/admin/products/p2.php" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img-container">
+                     
+                        <img src="../assets/images/products/p3.png" alt="BioGro Organic Fertilizer" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">CROPTELL EMA 001 (Emamectin Benzoate 5% SG)</h3>
+                        <p class="product-description">“CROPTELL EMA 001 – A powerful insecticide (Emamectin Benzoate 5% SG) for effective control of bollworms and caterpillars.”</p>
+                       <a href="/admin/products/p3.php" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a> 
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img-container">
+                    
+                        <img src="../assets/images/products/p4.png" alt="GreenShield Pest Control" class="product-img">
+                    </div>
+                    <div class="product-info">
+                       <h3 class="product-name">CROPTELL Nitro King (Plant Growth Promoter)</h3>
+                        <p class="product-description">“CROPTELL Nitro King – A plant growth promoter that enhances vigor, yield, and overall crop health.”</p>
+                        <a href="../admin/products/p4.php" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-img-container">
+                
+                        <img src="../assets/images/products/p5.png" alt="CropGuard" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">CROPTELL HUMITELL (Organic Soil Conditioner)</h3>
+                        <p class="product-description">“CROPTELL HUMITELL – An organic soil conditioner that boosts soil fertility, root growth, and nutrient uptake.”</p>
+                        <a href="/admin/products/p5.php" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-img-container">
+               
+                        <img src="../assets/images/products/p6.png" alt="NutriMax" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Best Grow (Ammonium Polyphosphate 10-34-0)</h3>
+                        <p class="product-description">“Best Grow (Ammonium Polyphosphate 10-34-0) – A high-efficiency liquid fertilizer that supplies essential nitrogen and phosphorus for vigorous crop growth.”</p>
+                        <a href="/admin/products/p6.php" class="product-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<script>
+
+        // Simple category filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // In a real implementation, you would filter products here
+                    // For this demo, we'll just show a message
+                    const category = this.textContent;
+                    if(category !== 'All Products') {
+                        alert(`Filtering by: ${category}\n\nThis is a demo. In a real implementation, products would be filtered.`);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</section>
+
+
+<!-- Hero- section -->
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 seconds
+
+        // Function to show a specific slide
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show the selected slide
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        // Auto slide functionality
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Start auto sliding
+        let slideTimer = setInterval(nextSlide, slideInterval);
+
+        // Pause on hover
+        const slider = document.querySelector('.slider-container');
+        slider.addEventListener('mouseenter', () => clearInterval(slideTimer));
+        slider.addEventListener('mouseleave', () => slideTimer = setInterval(nextSlide, slideInterval));
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideTimer);
+                showSlide(index);
+                slideTimer = setInterval(nextSlide, slideInterval);
+            });
+        });
+
+        // Touch support for mobile devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(slideTimer);
+        }, {passive: true});
+
+        slider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            slideTimer = setInterval(nextSlide, slideInterval);
+        }, {passive: true});
+
+        function handleSwipe() {
+            const threshold = 50; // Minimum swipe distance
+            if (touchEndX < touchStartX - threshold) {
+                // Swipe left - next slide
+                nextSlide();
+            } else if (touchEndX > touchStartX + threshold) {
+                // Swipe right - previous slide
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+        }
+    });
+</script>
+
+
+
+
+<!-- Product Benefits Section -->
+<section id="benefits" class="product-benefits">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why Partner With Us?</h2>
+            <p>Your trusted partner for premium agricultural solutions</p>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Curated Product Selection</h3>
+                <p>We carefully select only the most effective and reliable agricultural products from top manufacturers</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Efficient Distribution</h3>
+                <p>Timely delivery and reliable supply chain to ensure products reach you when you need them</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Expert Guidance</h3>
+                <p>Our agricultural specialists provide personalized recommendations for your specific needs</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-rupee-sign"></i>
+                </div>
+                <h3>Competitive Pricing</h3>
+                <p>Direct partnerships with manufacturers ensure you get the best value</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Product Training</h3>
+                <p>Comprehensive training on proper product usage and application techniques</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Quality Assurance</h3>
+                <p>We stand behind every product we distribute with strict quality checks</p>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Farmers Say</h2>
+                    <p>Hear from our satisfied customers</p>
+                </div>
+                
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"CHAMPION 7 has transformed my cotton fields. The pest resistance has decreased significantly after using this product."</p>
+                        <p class="testimonial-author">- Rajesh Patel, Gujarat</p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The BioGro fertilizer improved my soil health and increased my yield by 20% in just one season. Highly recommended!"</p>
+                        <p class="testimonial-author">- Priya Sharma, Punjab</p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Excellent customer support and high-quality products. Croptell is my go-to for all agricultural inputs now."</p>
+                        <p class="testimonial-author">- Arun Kumar, Maharashtra</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="contact-container">
+            <!-- Banner Section -->
+            <div class="banner-section">
+                <div class="banner-content">
+                  
+                    <img src="../assets/images/banners/banner4.png" alt="PerCINAK AirPetsah" class="banner-image">
+                    
+                    
+                </div>
+            </div>
+            
+            <!-- Contact Form Section -->
+            <div class="form-section">
+                <h2>Get In Touch</h2>
+                <form action="/submit_contact" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select name="service" required>
+                            <option value="" disabled selected>Select Service Needed</option>
+                            <option value="boarding">Pet Boarding</option>
+                            <option value="grooming">Grooming</option>
+                            <option value="emergency">Emergency Care</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Tell us about your pet's needs" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Map Section -->
+    <div class="contact-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0010360000005!2d77.59427761482194!3d12.971679990856287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf5df53c8e6b6f6b!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1622548765432!5m2!1sen!2sin" 
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</section>
+
+<style>
+    /* Contact Section Styles */
+    .contact-section {
+        padding: 60px 0;
+        background-color: #f9f9f9;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .banner-section {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .banner-content {
+        text-align: center;
+        padding: 30px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        width: 100%;
+        height: auto;
+    }
+    
+    .banner-content h1 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    
+    .banner-content p {
+        font-size: 1.5rem;
+        color: #555;
+        margin-bottom: 20px;
+    }
+    
+    .banner-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 25px;
+    }
+    
+    .form-section {
+        flex: 1;
+        min-width: 300px;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .form-section h2 {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+    
+    .submit-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 14px 25px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+    
+    .submit-btn:hover {
+        background-color: #3e8e41;
+    }
+    
+    .submit-btn i {
+        margin-left: 8px;
+    }
+    
+    .contact-info {
+        margin-top: 25px;
+        text-align: left;
+    }
+    
+    .info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .info-item i {
+        color: #4CAF50;
+        margin-right: 15px;
+        font-size: 18px;
+        min-width: 20px;
+    }
+    
+    .info-item p {
+        margin: 0;
+        color: #555;
+    }
+    
+    .contact-map {
+        margin-top: 60px;
+    }
+    
+    @media (max-width: 768px) {
+        .contact-container {
+            flex-direction: column;
+        }
+        
+        .banner-content {
+            padding: 20px;
+        }
+        
+        .banner-content h5 {
+            font-size: 2rem;
+        }
+        
+        .banner-content p {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+<!-- Add this to your CSS -->
+<style>
+    /* ============ CHATBOT STYLES ============ */
+    .chatbot-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .chatbot-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--secondary);
+        color: var(--primary-dark);
+        border: none;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: all 0.3s ease;
+    }
+
+    .chatbot-btn:hover {
+        transform: scale(1.1);
+        background-color: #e6951a;
+    }
+
+    .chatbot-window {
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        width: 350px;
+        height: 500px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        overflow: hidden;
+        display: none;
+        flex-direction: column;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .chatbot-window.active {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .chatbot-header {
+        background-color: var(--primary);
+        color: white;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .chatbot-header h3 {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .chatbot-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .chatbot-messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        background-color: #f9f9f9;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .message {
+        margin-bottom: 15px;
+        max-width: 80%;
+        padding: 10px 15px;
+        border-radius: 18px;
+        font-size: 14px;
+        line-height: 1.5;
+        position: relative;
+    }
+
+    .bot-message {
+        background-color: #e5e5ea;
+        color: #000;
+        border-top-left-radius: 5px;
+        align-self: flex-start;
+    }
+
+    .user-message {
+        background-color: var(--primary);
+        color: white;
+        border-top-right-radius: 5px;
+        align-self: flex-end;
+        margin-left: auto;
+    }
+
+    .chatbot-input {
+        display: flex;
+        padding: 15px;
+        border-top: 1px solid #eee;
+        background-color: white;
+    }
+
+    .chatbot-input input {
+        flex: 1;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        outline: none;
+        font-size: 14px;
+    }
+
+    .chatbot-input button {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chatbot-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .option-btn {
+        background-color: white;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        padding: 8px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+
+    .option-btn:hover {
+        background-color: var(--primary);
+        color: white;
+    }
+
+    .whatsapp-option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #25D366;
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .whatsapp-option:hover {
+        background-color: #128C7E;
+    }
+
+    .whatsapp-option i {
+        margin-right: 8px;
+        font-size: 18px;
+    }
+
+    /* Typing indicator */
+    .typing-indicator {
+        display: flex;
+        padding: 10px 15px;
+    }
+
+    .typing-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #999;
+        border-radius: 50%;
+        margin: 0 2px;
+        animation: typingAnimation 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes typingAnimation {
+        0%, 60%, 100% { transform: translateY(0); }
+        30% { transform: translateY(-5px); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+        .chatbot-container {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .chatbot-window {
+            width: 300px;
+            height: 450px;
+            right: -20px;
+        }
+    }
+</style>
+
+<!-- Add this HTML before your closing </body> tag -->
+<div class="chatbot-container">
+    <button class="chatbot-btn" id="chatbotToggle">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+    
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <h3>Croptell Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chatbot-messages" id="chatbotMessages">
+            <!-- Messages will be added here dynamically -->
+        </div>
+        
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="chatbotSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Add this JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // DOM Elements
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        
+        // WhatsApp number (updated as requested)
+        const whatsappNumber = '9632676834';
+        
+        // Initial bot message
+        const initialMessages = [
+            {
+                sender: 'bot',
+                text: 'Hello! 👋 I\'m the Croptell Assistant. How can I help you today?'
+            },
+            {
+                sender: 'bot',
+                text: 'You can ask me about our products, services, or connect with our team directly on WhatsApp.'
+            }
+        ];
+        
+        // Common questions/options
+        const commonOptions = [
+            'Tell me about your products',
+            'How to order?',
+            'Product pricing',
+            'Technical support',
+            'Connect with sales team'
+        ];
+        
+        // Product information
+        const products = {
+            'Champion 7': 'Champion 7 (Emamectin Benzoate 1.9% EC) is our advanced insecticide formulation for effective pest control in a wide range of crops.',
+            'CROPTELL GOLD': 'CROPTELL GOLD is an organic soil improver that boosts fertility, growth, and yield naturally.',
+            'CROPTELL EMA 001': 'CROPTELL EMA 001 is a powerful insecticide (Emamectin Benzoate 5% SG) for effective control of bollworms and caterpillars.',
+            'CROPTELL Nitro King': 'CROPTELL Nitro King is a plant growth promoter that enhances vigor, yield, and overall crop health.',
+            'CROPTELL HUMITELL': 'CROPTELL HUMITELL is an organic soil conditioner that boosts soil fertility, root growth, and nutrient uptake.',
+            'Best Grow': 'Best Grow (Ammonium Polyphosphate 10-34-0) is a high-efficiency liquid fertilizer that supplies essential nitrogen and phosphorus.'
+        };
+
+        // Toggle chatbot window
+        chatbotToggle.addEventListener('click', function() {
+            chatbotWindow.classList.toggle('active');
+            
+            // Initialize messages if first time opening
+            if (chatbotWindow.classList.contains('active')) {
+                if (chatbotMessages.children.length === 0) {
+                    displayInitialMessages();
+                }
+            }
+        });
+        
+        // Close chatbot window
+        chatbotClose.addEventListener('click', function() {
+            chatbotWindow.classList.remove('active');
+        });
+        
+        // Send message on button click
+        chatbotSend.addEventListener('click', sendMessage);
+        
+        // Send message on Enter key
+        chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Display initial messages
+        function displayInitialMessages() {
+            initialMessages.forEach((message, index) => {
+                setTimeout(() => {
+                    addMessage(message.sender, message.text);
+                    
+                    // Show options after last message
+                    if (index === initialMessages.length - 1) {
+                        setTimeout(() => {
+                            showOptions();
+                        }, 500);
+                    }
+                }, index * 1000);
+            });
+        }
+        
+        // Add message to chat
+        function addMessage(sender, text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(sender === 'bot' ? 'bot-message' : 'user-message');
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+        
+        // Show typing indicator
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.classList.add('message', 'bot-message');
+            typingDiv.innerHTML = `
+                <div class="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+            chatbotMessages.appendChild(typingDiv);
+            scrollToBottom();
+            return typingDiv;
+        }
+        
+        // Remove typing indicator
+        function removeTyping(typingElement) {
+            if (typingElement && typingElement.parentNode) {
+                typingElement.remove();
+            }
+        }
+        
+        // Show quick options
+        function showOptions() {
+            const optionsDiv = document.createElement('div');
+            optionsDiv.classList.add('chatbot-options');
+            
+            commonOptions.forEach(option => {
+                const optionBtn = document.createElement('div');
+                optionBtn.classList.add('option-btn');
+                optionBtn.textContent = option;
+                optionBtn.addEventListener('click', function() {
+                    handleUserInput(option);
+                });
+                optionsDiv.appendChild(optionBtn);
+            });
+            
+            // WhatsApp option
+            const whatsappBtn = document.createElement('div');
+            whatsappBtn.classList.add('whatsapp-option');
+            whatsappBtn.innerHTML = `
+                <i class="fab fa-whatsapp"></i>
+                Chat on WhatsApp
+            `;
+            whatsappBtn.addEventListener('click', function() {
+                window.open(`https://wa.me/${whatsappNumber}`, '_blank');
+            });
+            optionsDiv.appendChild(whatsappBtn);
+            
+            chatbotMessages.appendChild(optionsDiv);
+            scrollToBottom();
+        }
+        
+        // Handle user input
+        function handleUserInput(input) {
+            addMessage('user', input);
+            
+            // Clear input field
+            chatbotInput.value = '';
+            
+            // Show typing indicator
+            const typingElement = showTyping();
+            
+            // Simulate bot response after delay
+            setTimeout(() => {
+                removeTyping(typingElement);
+                generateBotResponse(input);
+            }, 1500);
+        }
+        
+        // Send message
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                handleUserInput(message);
+            }
+        }
+        
+        // Generate bot response
+        function generateBotResponse(input) {
+            input = input.toLowerCase();
+            let response = '';
+            
+            // Check for product queries
+            let productMatch = null;
+            Object.keys(products).forEach(product => {
+                if (input.includes(product.toLowerCase())) {
+                    productMatch = product;
+                }
+            });
+            
+            if (productMatch) {
+                response = products[productMatch];
+            } 
+            else if (input.includes('product') || input.includes('products')) {
+                response = 'We offer a range of agricultural products including insecticides, soil improvers, and growth promoters. Here are some of our key products: ' + 
+                          Object.keys(products).join(', ');
+            }
+            else if (input.includes('order') || input.includes('buy') || input.includes('purchase')) {
+                response = 'You can place orders through our distributors or contact our sales team directly. Would you like me to connect you with our sales representative on WhatsApp?';
+            }
+            else if (input.includes('price') || input.includes('cost') || input.includes('pricing')) {
+                response = 'Product pricing varies based on quantity and location. For accurate pricing information, please contact our sales team. Would you like to connect with them on WhatsApp?';
+            }
+            else if (input.includes('support') || input.includes('technical') || input.includes('help')) {
+                response = 'Our technical support team is available to assist you with product usage and troubleshooting. You can reach them at support@croptell.com or connect via WhatsApp for immediate assistance.';
+            }
+            else if (input.includes('contact') || input.includes('team') || input.includes('sales') || input.includes('representative')) {
+                response = 'You can contact our sales team directly on WhatsApp for immediate assistance. Would you like to connect now?';
+            }
+            else {
+                response = 'I\'m sorry, I didn\'t understand your question. Could you please rephrase or choose from these options?';
+            }
+            
+            addMessage('bot', response);
+            
+            // Show options if needed
+            if (response.includes('Would you like') || response.includes('options')) {
+                setTimeout(() => {
+                    showOptions();
+                }, 500);
+            }
+        }
+        
+        // Scroll to bottom of messages
+        function scrollToBottom() {
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+    });
+    
+    
+    
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                
+                // Change icon based on menu state
+                const icon = mobileMenuButton.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                    mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (mainNav.classList.contains('active') && 
+                    !mainNav.contains(event.target) && 
+                    !mobileMenuButton.contains(event.target)) {
+                    mainNav.classList.remove('active');
+                    mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                    mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-heading">Croptell Crop Science</h3>
+                 <p><i class="fas fa-map-marker-alt"></i> 
+                📍 Additional Office:
+                GP-4382, R/o Channahalli, Yelahanka,
+                Bengaluru Urban, Karnataka – 560064, India </p>
+
+                <p>Providing premium agricultural solutions since 2005</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/p/Croptell-crop-science-Bhalki-100093513976987/"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-heading">Contact Us</h3>
+                <div class="contact-info">
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i> 
+                📍  REVANASIDDA SUBHASH BIRADAR , SHOP NO 01, WARD NO 21 21 SUBHASH CHOWK BIDAR ROAD,
+                        BHALKI BIDAR. KARNATAKA - 585328 , India  
+            </p>
+                    <p><i class="fas fa-phone"></i> +91 9620470607</p>
+                    <p><i class="fas fa-envelope"></i> info@croptellcropscience.com</p>
+                </div>
+                 
+            </div>
+        </div>
+        <div class="footer-bottom">
+    <p>
+        &copy; 2023 Croptell Crop Science. All rights reserved. <br>
+        Powered by <a href="https://www.vswdatasolutions.in" target="_blank" style="color: #00c853; text-decoration: none;">
+            VISHAL WAGARAJ - VSW Data Solutions
+        </a>
+    </p>
+</div>
+
+    </footer>
+</body>
+</html> 

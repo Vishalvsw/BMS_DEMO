@@ -1,0 +1,435 @@
+<div class="col-lg-4 col-md-6">
+  <div class="banking-card">
+    <!-- Card Header -->
+    <div class="banking-card-header">
+      <i class="bi bi-bank"></i>
+      <h3>Premium Banking</h3>
+      <div class="badge bg-warning">ACTIVE</div>
+    </div>
+
+    <!-- Account Selection -->
+    <div class="form-group">
+      <label>Select Account</label>
+      <div class="searchable-dropdown">
+        <input type="text" id="accountSearch" placeholder="Search by ID or name..." class="form-control">
+        <div class="dropdown-results" id="accountResults"></div>
+      </div>
+    </div>
+
+    <!-- Action Tabs -->
+    <ul class="action-tabs nav nav-tabs" id="bankingTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#emiTab">
+          <i class="bi bi-currency-exchange"></i> EMI
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#loanTab">
+          <i class="bi bi-cash-stack"></i> Loans
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#transactionTab">
+          <i class="bi bi-arrow-left-right"></i> Transactions
+        </button>
+      </li>
+    </ul>
+
+<div class="col-lg-4 col-md-6">
+    <div class="card shadow text-center card-premium-emi bg-dark">
+        <div class="card-body">
+            <h5 class="card-title text-white">Premium EMI</h5>
+            <p class="card-text text-white mb-3">Make EMI payments for existing loans</p>
+            <a href="/premium_emi" class="btn btn-outline-success">💰 Pay EMI</a>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Tab Contents -->
+    <div class="tab-content">
+      <!-- EMI Payment Tab -->
+      <div class="tab-pane fade show active" id="emiTab">
+        <div class="emi-details">
+          <div class="detail-row">
+            <span>Loan ID:</span>
+            <strong id="loanIdDisplay">LN-</strong>
+          </div>
+          <div class="detail-row">
+            <span>Due Amount:</span>
+            <strong id="dueAmountDisplay">₹0.00</strong>
+          </div>
+          <div class="detail-row">
+            <span>Due Date:</span>
+            <strong id="dueDateDisplay">--/--/----</strong>
+          </div>
+        </div>
+        <button id="payEmiBtn" class="btn btn-success w-100" disabled>
+          <i class="bi bi-check-circle"></i> Pay EMI
+        </button>
+      </div>
+
+      <!-- Loan Management Tab -->
+      <div class="tab-pane fade" id="loanTab">
+        <div class="form-group">
+          <label>Loan Type</label>
+          <select class="form-select" id="loanType">
+            <option value="personal">Personal Loan</option>
+            <option value="home">Home Loan</option>
+            <option value="car">Car Loan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Amount (₹)</label>
+          <input type="number" class="form-control" id="loanAmount" min="10000">
+        </div>
+        <div class="form-group">
+          <label>Tenure (months)</label>
+          <input type="number" class="form-control" id="loanTenure" min="6" max="60" value="12">
+        </div>
+        <button id="applyLoanBtn" class="btn btn-primary w-100" disabled>
+          <i class="bi bi-send-check"></i> Apply for Loan
+        </button>
+      </div>
+
+      <!-- Transactions Tab -->
+      <div class="tab-pane fade" id="transactionTab">
+        <div class="btn-group w-100 mb-3">
+          <button class="btn btn-outline-success active" data-type="credit">
+            <i class="bi bi-plus-circle"></i> Credit
+          </button>
+          <button class="btn btn-outline-danger" data-type="debit">
+            <i class="bi bi-dash-circle"></i> Debit
+          </button>
+        </div>
+        <div class="form-group">
+          <label>Amount (₹)</label>
+          <input type="number" class="form-control" id="transactionAmount" min="1">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" class="form-control" id="transactionDesc">
+        </div>
+        <button id="processTransactionBtn" class="btn btn-primary w-100" disabled>
+          <i class="bi bi-check-lg"></i> Process
+        </button>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent-activity">
+      <h5><i class="bi bi-clock-history"></i> Recent Activity</h5>
+      <div class="activity-list" id="activityList">
+        <div class="activity-item">
+          <div class="activity-icon success">
+            <i class="bi bi-check-circle"></i>
+          </div>
+          <div class="activity-details">
+            <span>EMI Payment</span>
+            <small>₹5,200 • 15 Sep 2023</small>
+          </div>
+          <div class="activity-amount success">
+            +₹5,200
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Styles -->
+<style>
+.banking-card {
+  background: #2c3e50;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.banking-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.banking-card-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.banking-card-header i {
+  font-size: 1.8rem;
+  color: #f39c12;
+}
+
+.banking-card-header .badge {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.action-tabs {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 15px;
+}
+
+.action-tabs .nav-link {
+  color: rgba(255,255,255,0.7);
+  border: none;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+}
+
+.action-tabs .nav-link.active {
+  color: white;
+  background: transparent;
+  border-bottom: 2px solid #f39c12;
+}
+
+.action-tabs .nav-link i {
+  margin-right: 5px;
+}
+
+.emi-details {
+  background: rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.recent-activity {
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.recent-activity h5 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+}
+
+.activity-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.activity-icon.success {
+  background: rgba(46, 213, 115, 0.2);
+  color: #2ed573;
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-details span {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.activity-details small {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.activity-amount {
+  font-weight: bold;
+}
+
+.activity-amount.success {
+  color: #2ed573;
+}
+
+.searchable-dropdown {
+  position: relative;
+}
+
+.dropdown-results {
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #34495e;
+  border-radius: 0 0 6px 6px;
+  z-index: 10;
+  display: none;
+}
+
+.dropdown-item {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.btn-group .btn {
+  flex: 1;
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // DOM Elements
+  const accountSearch = document.getElementById('accountSearch');
+  const accountResults = document.getElementById('accountResults');
+  const payEmiBtn = document.getElementById('payEmiBtn');
+  const applyLoanBtn = document.getElementById('applyLoanBtn');
+  const processTransactionBtn = document.getElementById('processTransactionBtn');
+  
+  // Sample account data
+  const accounts = [
+    { id: 'AC1001', name: 'John Doe', loans: [{ id: 'LN1001', due: 5200, date: '05/10/2023' }] },
+    { id: 'AC1002', name: 'Jane Smith', loans: [{ id: 'LN1002', due: 7800, date: '12/10/2023' }] },
+    { id: 'AC1003', name: 'Robert Johnson', loans: [] }
+  ];
+  
+  // Current selected account
+  let selectedAccount = null;
+  
+  // Account search functionality
+  accountSearch.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    accountResults.innerHTML = '';
+    
+    if(searchTerm.length < 2) {
+      accountResults.style.display = 'none';
+      return;
+    }
+    
+    const filtered = accounts.filter(acc => 
+      acc.id.toLowerCase().includes(searchTerm) || 
+      acc.name.toLowerCase().includes(searchTerm)
+    );
+    
+    if(filtered.length === 0) {
+      accountResults.innerHTML = '<div class="dropdown-item">No accounts found</div>';
+    } else {
+      filtered.forEach(acc => {
+        const item = document.createElement('div');
+        item.className = 'dropdown-item';
+        item.textContent = `${acc.id} - ${acc.name}`;
+        item.addEventListener('click', () => selectAccount(acc));
+        accountResults.appendChild(item);
+      });
+    }
+    
+    accountResults.style.display = 'block';
+  });
+  
+  // Select account
+  function selectAccount(account) {
+    selectedAccount = account;
+    accountSearch.value = `${account.id} - ${account.name}`;
+    accountResults.style.display = 'none';
+    
+    // Enable buttons
+    payEmiBtn.disabled = !account.loans.length;
+    applyLoanBtn.disabled = false;
+    processTransactionBtn.disabled = false;
+    
+    // Update EMI details if loan exists
+    if(account.loans.length) {
+      const loan = account.loans[0];
+      document.getElementById('loanIdDisplay').textContent = loan.id;
+      document.getElementById('dueAmountDisplay').textContent = `₹${loan.due.toLocaleString()}`;
+      document.getElementById('dueDateDisplay').textContent = loan.date;
+    }
+  }
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if(!accountSearch.contains(e.target) {
+      accountResults.style.display = 'none';
+    }
+  });
+  
+  // Button click handlers
+  payEmiBtn.addEventListener('click', function() {
+    alert(`Processing EMI payment of ${selectedAccount.loans[0].due} for ${selectedAccount.id}`);
+    // Add to activity
+    addActivity('EMI Payment', selectedAccount.loans[0].due, 'success');
+  });
+  
+  applyLoanBtn.addEventListener('click', function() {
+    const amount = document.getElementById('loanAmount').value;
+    const type = document.getElementById('loanType').value;
+    alert(`Applying for ${type} loan of ₹${amount} for ${selectedAccount.id}`);
+    addActivity('Loan Application', amount, 'success');
+  });
+  
+  // Add activity to recent list
+  function addActivity(title, amount, type) {
+    const activityList = document.getElementById('activityList');
+    const now = new Date();
+    const dateStr = `${now.getDate()} ${now.toLocaleString('default', { month: 'short' })} ${now.getFullYear()}`;
+    
+    const activityItem = document.createElement('div');
+    activityItem.className = 'activity-item';
+    activityItem.innerHTML = `
+      <div class="activity-icon ${type}">
+        <i class="bi bi-check-circle"></i>
+      </div>
+      <div class="activity-details">
+        <span>${title}</span>
+        <small>₹${amount} • ${dateStr}</small>
+      </div>
+      <div class="activity-amount ${type}">
+        ₹${amount}
+      </div>
+    `;
+    
+    activityList.prepend(activityItem);
+  }
+});
+</script>

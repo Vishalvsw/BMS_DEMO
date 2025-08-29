@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Header with Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"><h2>Customers Profile</h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/admin_dashboard">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/generate_report">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        
+        <!-- Search Form -->
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="query">Search by Account ID or Customer Name</label>
+                <input type="text" class="form-control" id="query" name="query" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        {% if customer %}
+            <h2 class="mt-5">Customer Details</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Full Name</th>
+                    <td>{{ customer['full_name'] }}</td>
+                </tr>
+                <tr>
+                    <th>Account ID</th>
+                    <td>{{ customer['id'] }}</td>
+                </tr>
+                <tr>
+                    <th>Father Name</th>
+                    <td>{{ customer['father_name'] }}</td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>{{ customer['phone'] }}</td>
+                </tr>
+                <tr>
+                    <th>Total Balance</th>
+                    <td>{{ customer['balance']|float + customer['share_fee']|float + customer['admin_fee']|float }}</td>
+                </tr>
+                <tr>
+                    <th>Account Created On</th>
+                    <td>{{ customer['timestamp'] }}</td>
+                </tr>
+            </table>
+
+            <!-- Deposits -->
+            <h3>Deposits</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr><th>Amount</th><th>Timestamp</th></tr>
+                </thead>
+                <tbody>
+                    {% for deposit in deposits %}
+                        <tr>
+                            <td>{{ deposit['amount'] }}</td>
+                            <td>{{ deposit['timestamp'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Withdrawals -->
+            <h3>Withdrawals</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr><th>Amount</th><th>Timestamp</th></tr>
+                </thead>
+                <tbody>
+                    {% for withdrawal in withdrawals %}
+                        <tr>
+                            <td>{{ withdrawal['amount'] }}</td>
+                            <td>{{ withdrawal['timestamp'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Loans -->
+            <h3>Loans</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr><th>Loan Type</th><th>Loan Amount</th><th>Interest Rate</th><th>Timestamp</th></tr>
+                </thead>
+                <tbody>
+                    {% for loan in loans %}
+                        <tr>
+                            <td>{{ loan['loan_type'] }}</td>
+                            <td>{{ loan['loan_amount'] }}</td>
+                            <td>{{ loan['interest_rate'] }}%</td>
+                            <td>{{ loan['timestamp'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Fixed Deposits -->
+            <h3>Fixed Deposit Accounts</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr><th>FD ID</th><th>FD Amount</th><th>Interest Rate</th><th>Maturity Date</th><th>Total Amount</th></tr>
+                </thead>
+                <tbody>
+                    {% for fd in fd_accounts %}
+                        <tr>
+                            <td>{{ fd['fd_id'] }}</td>
+                            <td>{{ fd['fd_amount'] }}</td>
+                            <td>{{ fd['interest_rate'] }}%</td>
+                            <td>{{ fd['maturity_date'] }}</td>
+                            <td>{{ fd['total_amount'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="mt-5">No customer found for the provided query!</p>
+        {% endif %}
+    </div>
+
+    <footer class="footer mt-5 text-center bg-dark text-white py-3">
+    <p class="mb-0">
+        &copy; 2025 GPS Teacher Co-Operative Bank Bhalki. All rights reserved. <br>
+        Powered by <strong>ViSHAL WAGARAJ</strong> – 
+        <a href="https://www.vswdatasolutions.in" target="_blank" class="text-warning text-decoration-none">
+            www.vswdatasolutions.in
+        </a>
+    </p>
+</footer>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

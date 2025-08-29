@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Loan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>GPS Teacher Co-Operative Bank Bhalki</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Bank Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/admin_dashboard">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/generate_report">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h2 class="text-center">Edit Loan</h2>
+
+        {% if loan %}
+        <form method="POST">
+            <!-- Account ID -->
+            <div class="mb-3">
+                <label for="account_id" class="form-label">Account ID</label>
+                <input type="text" class="form-control" id="account_id" name="account_id" value="{{ loan['account_id'] }}" required>
+            </div>
+
+            <!-- Loan Type -->
+            <div class="mb-3">
+                <label for="loan_type" class="form-label">Loan Type</label>
+                <select name="loan_type" class="form-select" required>
+                    <option value="home loan" {% if loan['loan_type'] == 'home loan' %}selected{% endif %}>Home Loan</option>
+                    <option value="vehicle loan" {% if loan['loan_type'] == 'vehicle loan' %}selected{% endif %}>Vehicle Loan</option>
+                    <option value="education loan" {% if loan['loan_type'] == 'education loan' %}selected{% endif %}>Education Loan</option>
+                    <option value="gold loan" {% if loan['loan_type'] == 'gold loan' %}selected{% endif %}>Gold Loan</option>
+                </select>
+            </div>
+
+            <!-- Loan Amount -->
+            <div class="mb-3">
+                <label for="loan_amount" class="form-label">Loan Amount</label>
+                <input type="number" class="form-control" id="loan_amount" name="loan_amount" value="{{ loan['loan_amount'] }}" required>
+            </div>
+
+            <!-- Interest Rate -->
+            <div class="mb-3">
+                <label for="interest_rate" class="form-label">Interest Rate (%)</label>
+                <input type="number" step="0.01" class="form-control" id="interest_rate" name="interest_rate" value="{{ loan['interest_rate'] }}" required>
+            </div>
+
+            <!-- Loan Term -->
+            <div class="mb-3">
+                <label for="loan_term" class="form-label">Loan Term (months)</label>
+                <input type="number" class="form-control" id="loan_term" name="loan_term" value="{{ loan['loan_term'] }}" required>
+            </div>
+
+            <!-- Nominee Name -->
+            <div class="mb-3">
+                <label for="nominee_name" class="form-label">Nominee Name</label>
+                <input type="text" class="form-control" id="nominee_name" name="nominee_name" value="{{ loan['nominee_name'] }}" required>
+            </div>
+
+            <!-- Nominee ID -->
+            <div class="mb-3">
+                <label for="nominee_id" class="form-label">Nominee ID</label>
+                <input type="number" class="form-control" id="nominee_id" name="nominee_id" value="{{ loan['nominee_id'] }}" required>
+            </div>
+
+            <!-- File Charge -->
+            <div class="mb-3">
+                <label for="file_charge" class="form-label">File Charge</label>
+                <input type="number" step="0.01" class="form-control" id="file_charge" name="file_charge" value="{{ loan['file_charge'] }}" required>
+            </div>
+
+            <!-- Remaining Balance -->
+            <div class="mb-3">
+                <label for="remaining_balance" class="form-label">Remaining Balance</label>
+                <input type="number" class="form-control" id="remaining_balance" name="remaining_balance" value="{{ loan['remaining_balance'] }}" required>
+            </div>
+
+            <!-- Buttons -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Update Loan</button>
+                <a href="{{ url_for('loan_details', loan_id=loan['id']) }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+        {% else %}
+        <p class="text-danger text-center">Loan not found!</p>
+        {% endif %}
+    </div>
+
+    <footer class="footer mt-5 text-center bg-dark text-white py-3">
+    <p class="mb-0">
+        &copy; 2025 GPS Teacher Co-Operative Bank Bhalki. All rights reserved. <br>
+        Powered by <strong>ViSHAL WAGARAJ</strong> – 
+        <a href="https://www.vswdatasolutions.in" target="_blank" class="text-warning text-decoration-none">
+            www.vswdatasolutions.in
+        </a>
+    </p>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

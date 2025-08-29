@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <title>ವೆಚ್ಚ ಇತಿಹಾಸ - GPS Teacher Co-Operative Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Noto Sans Kannada', sans-serif;
+        }
+        .card {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .filter-form {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-4">
+    <h2 class="text-center text-primary mb-4">🧾 ವೆಚ್ಚದ ಇತಿಹಾಸ (Expenditure History)</h2>
+
+    <!-- Filter Form -->
+    <form method="get" action="{{ url_for('expenditure_history') }}" class="filter-form">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label for="date" class="form-label">ದಿನಾಂಕ (Date)</label>
+                <input type="date" name="date" id="date" value="{{ request.args.get('date', '') }}" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label for="charge_type" class="form-label">ವೆಚ್ಚದ ಪ್ರಕಾರ (Charge Type)</label>
+                <select name="charge_type" id="charge_type" class="form-select">
+                    <option value="Office Rent">Office Rent</option>
+                    <option value="Employee Salary">Employee Salary</option>
+                    <option value="Loan Disbursement">Loan Disbursement</option>
+                    <option value="Electricity Bill">Electricity Bill</option>
+                    <option value="Registration Charges">Registration Charges</option>
+                    <option value="Raw Material">Raw Material</option>
+                    <option value="Bank Charges">Bank Charges</option>
+                    <option value="Meeting Expenditure">Meeting Expenditure</option>
+                    <option value="Other">Other</option>
+
+
+
+                    {% set charge_types = ['Office Rent', 'Employee Salary', 'Loan Disbursement', 'Electricity Bill', 'Registration Charges', 'Raw Material', 'Bank Charges', 'Meeting Expenditure', 'Other'] %}    
+                    
+
+
+
+                    {% for ct in charge_types %}
+                    <option value="{{ ct }}" {% if request.args.get('charge_type') == ct %}selected{% endif %}>{{ ct }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary me-2">🔍 ಹುಡುಕಿ (Search)</button>
+                <a href="{{ url_for('expenditure_history') }}" class="btn btn-outline-secondary">🔄 ರಿಸೆಟ್ (Reset)</a>
+            </div>
+        </div>
+    </form>
+
+
+    <!-- Expenditure Cards -->
+    <div class="row">
+        {% for item in expenses_list %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-info">
+                <div class="card-body">
+                    <h6 class="text-muted">{{ item.recorded_by or username }}</h6>
+                    <h5 class="card-title">{{ item.charge_type }} - ₹{{ item.amount }}</h5>
+                    <p class="card-text">
+                        {% if item.acc_id %}<strong>Account ID:</strong> {{ item.acc_id }}<br>{% endif %}
+                        {% if item.name %}<strong>ಹೆಸರು:</strong> {{ item.name }}<br>{% endif %}
+                        {% if item.description %}<strong>ವಿವರಣೆ:</strong> {{ item.description }}<br>{% endif %}
+                        <strong>ದಿನಾಂಕ:</strong> {{ item.created_at or item.recorded_at }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <div class="alert alert-warning text-center">🥲 ಯಾವುದೇ ವೆಚ್ಚದ ದಾಖಲೆ ಕಂಡುಬಂದಿಲ್ಲ.</div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-4">
+        <a href="{{ url_for('expenditure') }}" class="btn btn-secondary">← expenditure summary ಗೆ ಹಿಂತಿರುಗಿ</a>
+    </div>
+</div>
+
+</body>
+</html>

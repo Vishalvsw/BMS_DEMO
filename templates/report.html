@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Reports Dashboard | GPS Teacher Co-Operative Bank Bhalki</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.35.0/dist/apexcharts.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #1abc9c;
+            --accent-color: #3498db;
+            --dark-color: #34495e;
+            --light-color: #ecf0f1;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --info-color: #3498db;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid var(--secondary-color);
+        }
+        
+        .navbar {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 1.25rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+            font-weight: 600;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            border-radius: 12px 12px 0 0 !important;
+            padding: 1.25rem 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 1.15rem;
+        }
+        
+        .summary-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid var(--secondary-color);
+            text-align: center;
+        }
+        
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .summary-card h5 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            font-size: 1.2rem;
+        }
+        
+        .summary-card .display-4 {
+            color: var(--dark-color);
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin-bottom: 1rem;
+            position: relative;
+            min-height: 300px;
+        }
+        
+        .table thead th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            font-size: 1rem;
+            padding: 1rem 1.25rem;
+        }
+        
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: rgba(236, 240, 241, 0.5);
+        }
+        
+        .table-hover tbody tr:hover {
+            background-color: rgba(26, 188, 156, 0.1);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+            border-top: 5px solid var(--secondary-color);
+        }
+        
+        .footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .badge {
+            font-size: 0.85rem;
+            padding: 0.5em 0.8em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-success { background-color: var(--success-color); }
+        .badge-warning { background-color: var(--warning-color); color: #000; }
+        .badge-danger { background-color: var(--danger-color); }
+        .badge-primary { background-color: var(--accent-color); }
+        .badge-info { background-color: var(--info-color); }
+        .badge-secondary { background-color: #95a5a6; }
+        
+        .stat-icon {
+            font-size: 2.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.25rem;
+        }
+        
+        .export-btn {
+            position: absolute;
+            right: 1.5rem;
+            top: 1rem;
+            z-index: 10;
+            font-size: 0.95rem;
+        }
+        
+        .data-table-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .progress-thin {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .status-active { background-color: var(--success-color); }
+        .status-pending { background-color: var(--warning-color); }
+        .status-closed { background-color: var(--danger-color); }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #16a085;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.75rem 0;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .summary-card {
+                margin-bottom: 1.5rem;
+                padding: 1.5rem;
+            }
+            
+            .summary-card .display-4 {
+                font-size: 2rem;
+            }
+            
+            .chart-container {
+                height: 250px;
+            }
+            
+            .nav-link {
+                padding: 0.5rem 1rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .card, .summary-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .card.visible, .summary-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="display-4 mb-3"><i class="bi bi-bar-chart"></i> GPS Teacher Co-Operative Bank Bhalki</h1>
+            <p class="lead">Comprehensive Financial Reports Dashboard</p>
+            <div class="d-flex justify-content-center gap-3 mt-3">
+                <button class="btn btn-outline-light">
+                    <i class="bi bi-calendar-week"></i> {{ current_date }}
+                </button>
+                <button class="btn btn-outline-light">
+                    <i class="bi bi-person-circle"></i> {{ username }}
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-speedometer2"></i> Bank Reports
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin_dashboard">
+                            <i class="bi bi-house-door"></i> Dashboard
+                        </a>
+                    </li>
+                    
+                        <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('view_fee_details') }}">
+        <i class="bi bi-receipt-cutoff"></i> View Fee Details
+    </a>
+                        </li>  
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/generate_report">
+                            <i class="bi bi-graph-up"></i> Reports
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="reportsDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-file-earmark-text"></i> Quick Reports
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-people-fill"></i> Customer Report</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-cash-stack"></i> Transaction Report</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-currency-rupee"></i> Loan Report</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Custom Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0"><i class="bi bi-file-earmark-bar-graph"></i> Financial Reports Overview</h2>
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="timeRangeDropdown" data-bs-toggle="dropdown">
+                    <i class="bi bi-calendar-range"></i> Last 30 Days
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item active" href="#">Last 30 Days</a></li>
+                    <li><a class="dropdown-item" href="#">Last Quarter</a></li>
+                    <li><a class="dropdown-item" href="#">Last 6 Months</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Custom Range</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Summary Cards -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4 col-sm-6">
+                <div class="summary-card">
+                    <i class="bi bi-people-fill stat-icon"></i>
+                    <h5>Active Accounts</h5>
+                    <p class="display-4">{{ active_accounts }}</p>
+                    <div class="progress progress-thin mb-2">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 72%"></div>
+                    </div>
+                    <small class="text-muted">+5.2% from last month</small>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="summary-card">
+                    <i class="bi bi-person-x-fill stat-icon"></i>
+                    <h5>Closed Accounts</h5>
+                    <p class="display-4">{{ closed_accounts_count }}</p>
+                    <div class="progress progress-thin mb-2">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 18%"></div>
+                    </div>
+                    <small class="text-muted">-2.1% from last month</small>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="summary-card">
+                    <i class="bi bi-cash-coin stat-icon"></i>
+                    <h5>Total Balance</h5>
+                    <p class="display-4">₹{{ total_balance }}</p>
+                    <div class="progress progress-thin mb-2">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 85%"></div>
+                    </div>
+                    <small class="text-muted">+8.7% from last quarter</small>
+                </div>
+           </div>
+<div class="row">
+
+    <div class="col-md-4 col-sm-6">
+        <div class="summary-card">
+            <i class="bi bi-cash-coin stat-icon text-warning"></i>
+            <h5>Admin Fees</h5>
+            <p class="display-4">₹{{ "{:,.2f}".format(admin_fee or 0) }}</p>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+        <div class="summary-card">
+            <i class="bi bi-folder-check stat-icon text-info"></i>
+            <h5>Loan File Charges</h5>
+            <p class="display-4">₹{{ "{:,.2f}".format(loan_file_charge or 0) }}</p>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+        <div class="summary-card">
+            <i class="bi bi-person-lines-fill stat-icon text-success"></i>
+            <h5>Share Fees</h5>
+            <p class="display-4">₹{{ "{:,.2f}".format(share_fee or 0) }}</p>
+        </div>
+    </div>
+
+</div>
+            <div class="col-md-4 col-sm-6">
+                <div class="summary-card">
+                    <i class="bi bi-arrow-left-right stat-icon"></i>
+                    <h5>Total Transactions</h5>
+                    <p class="display-4">{{ total_transactions }}</p>
+                    <div class="progress progress-thin mb-2">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 65%"></div>
+                    </div>
+                    <small class="text-muted">1,240 today</small>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+    <div class="summary-card">
+        <i class="bi bi-cart-dash stat-icon text-danger"></i>
+        <h5>Total Expenditure</h5>
+        <p class="display-4">₹{{ "{:,.2f}".format(expenditure or 0) }}</p>
+
+        <div class="progress progress-thin mb-2">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 70%"></div>
+        </div>
+        <small class="text-muted">+5.2% compared to last quarter</small>
+    </div>
+</div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="summary-card">
+                    <i class="bi bi-currency-rupee stat-icon"></i>
+                    <h5>Total Loans</h5>
+                    <p class="display-4">₹{{ total_loans }}</p>
+                    <div class="progress progress-thin mb-2">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 42%"></div>
+                    </div>
+                    <small class="text-muted">32 active loans</small>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="summary-card">
+                    <i class="bi bi-graph-up-arrow stat-icon"></i>
+                    <h5>Net Profit/Loss</h5>
+                    <p class="display-4 {{ 'text-success' if profit_loss >= 0 else 'text-danger' }}">
+                        ₹{{ profit_loss }}
+                    </p>
+                    <div class="progress progress-thin mb-2">
+                        <div class="progress-bar {{ 'bg-success' if profit_loss >= 0 else 'bg-danger' }}" 
+                             role="progressbar" 
+                             style="width: {{ (profit_loss / 100000) * 100 }}%">
+                        </div>
+                    </div>
+                    <small class="text-muted">This fiscal year</small>
+                </div>
+            </div>
+        </div>
+
+{% for item in expenses %}
+  <div class="col-md-4">
+    <div class="card mb-3 border-info">
+      <div class="card-body">
+        <h5 class="card-title">{{ item['charge_type'] }} - ₹{{ item['amount'] }}</h5>
+        <p class="card-text">
+          <strong>Account ID:</strong> {{ item['acc_id'] }}<br>
+          <strong>Name:</strong> {{ item['name'] }}<br>
+          <strong>Description:</strong> {{ item['description'] }}<br>
+          <strong>Date:</strong> {{ item['created_at'] }}
+        </p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+        <!-- Charts Row 1 -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-pie-chart-fill"></i> Accounts Distribution</span>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-light export-btn">
+                                <i class="bi bi-download"></i> Export
+                            </button>
+                            <button class="btn btn-sm btn-light dropdown-toggle dropdown-toggle-split" 
+                                    data-bs-toggle="dropdown">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-pdf"></i> PDF</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-excel"></i> Excel</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-image"></i> PNG</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <div id="accountsChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-bar-chart-fill"></i> Loans Portfolio</span>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-light export-btn">
+                                <i class="bi bi-download"></i> Export
+                            </button>
+                            <button class="btn btn-sm btn-light dropdown-toggle dropdown-toggle-split" 
+                                    data-bs-toggle="dropdown">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-pdf"></i> PDF</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-excel"></i> Excel</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-image"></i> PNG</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <div id="loansChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row 2 -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-graph-up"></i> Transaction Trends</span>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-light export-btn">
+                                <i class="bi bi-download"></i> Export
+                            </button>
+                            <button class="btn btn-sm btn-light dropdown-toggle dropdown-toggle-split" 
+                                    data-bs-toggle="dropdown">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-pdf"></i> PDF</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-excel"></i> Excel</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-image"></i> PNG</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <div id="transactionsChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-piggy-bank"></i> FD Growth</span>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-light export-btn">
+                                <i class="bi bi-download"></i> Export
+                            </button>
+                            <button class="btn btn-sm btn-light dropdown-toggle dropdown-toggle-split" 
+                                    data-bs-toggle="dropdown">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-pdf"></i> PDF</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-excel"></i> Excel</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-image"></i> PNG</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <div id="fdChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accounts Table -->
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-people-fill"></i> Account Holders</span>
+                <div class="data-table-actions">
+                    <div class="input-group input-group-sm" style="width: 200px;">
+                        <input type="text" class="form-control" placeholder="Search accounts...">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                    <div class="btn-group ms-2">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="bi bi-download"></i> Export
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-csv"></i> CSV</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-excel"></i> Excel</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-pdf"></i> PDF</a></li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary ms-2">
+                        <i class="bi bi-printer"></i> Print
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Account Type</th>
+                                <th>Balance</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for account in accounts %}
+                            <tr>
+                                <td>{{ account.id }}</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi bi-person-circle me-2"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-2">
+                                            {{ account.full_name }}
+                                            <small class="d-block text-muted">{{ account.account_number }}</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ account.phone }}</td>
+                                <td>
+                                    <span class="badge 
+                                        {% if account.account_type == 'Savings' %}bg-primary
+                                        {% elif account.account_type == 'Current' %}bg-success
+                                        {% else %}bg-secondary{% endif %}">
+                                        {{ account.account_type }}
+                                    </span>
+                                </td>
+                                <td>₹{{ account.total_balance }}</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        <span class="status-indicator status-active"></span>
+                                        Active
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation" class="mt-3">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Loans Table -->
+        <div class="card mt-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-currency-rupee"></i> Loan Accounts</span>
+                <div class="data-table-actions">
+                    <div class="input-group input-group-sm" style="width: 200px;">
+                        <input type="text" class="form-control" placeholder="Search loans...">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                    <div class="btn-group ms-2">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="bi bi-download"></i> Export
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-csv"></i> CSV</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-excel"></i> Excel</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-filetype-pdf"></i> PDF</a></li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary ms-2">
+                        <i class="bi bi-printer"></i> Print
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Loan ID</th>
+                                <th>Name</th>
+                                <th>Loan Type</th>
+                                <th>Amount</th>
+                                <th>Paid</th>
+                                <th>Due</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for loan in loans %}
+                            <tr>
+                                <td>{{ loan.id }}</td>
+                                <td>{{ loan.full_name }}</td>
+                                <td>
+                                    <span class="badge 
+                                        {% if loan.loan_type == 'Personal' %}bg-info
+                                        {% elif loan.loan_type == 'Home' %}bg-warning text-dark
+                                        {% elif loan.loan_type == 'Education' %}bg-primary
+                                        {% else %}bg-secondary{% endif %}">
+                                        {{ loan.loan_type }}
+                                    </span>
+                                </td>
+                                <td>₹{{ loan.loan_amount }}</td>
+                                <td>₹{{ loan.paid_amount }}</td>
+                                <td>₹{{ loan.due_amount }}</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        <span class="status-indicator status-active"></span>
+                                        Active
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation" class="mt-3">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5><i class="bi bi-bank"></i> GPS Teacher Co-Operative Bank Bhalki</h5>
+                    <p class="mb-0">Committed to serving our community since 2002</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <p class="mb-0">
+                        &copy; 2025 All rights reserved. <br>
+                        <small>Report generated on: {{ current_date }}</small><br>
+                        Powered by <strong><a href="https://www.vswdatasolutions.in" target="_blank">VSW Data Solutions</a></strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.35.0/dist/apexcharts.min.js"></script>
+    <script>
+        // Initialize all charts when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Accounts Distribution Chart (Pie)
+            var accountsChart = new ApexCharts(document.querySelector("#accountsChart"), {
+                series: [1200, 150, 50],
+                chart: {
+                    type: 'donut',
+                    height: 300,
+                    animations: {
+                        enabled: true,
+                        easing: 'easeinout',
+                        speed: 800
+                    }
+                },
+                labels: ['Active Accounts', 'Dormant Accounts', 'Closed Accounts'],
+                colors: ['#2ecc71', '#f39c12', '#e74c3c'],
+                legend: {
+                    position: 'bottom'
+                },
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }],
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Total Accounts',
+                                    color: '#333',
+                                    formatter: function (w) {
+                                        return w.globals.seriesTotals.reduce((a, b) => {
+                                            return a + b
+                                        }, 0)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(value) {
+                            return value + " accounts";
+                        }
+                    }
+                }
+            });
+            accountsChart.render();
+
+            // Loans Portfolio Chart (Bar)
+            var loansChart = new ApexCharts(document.querySelector("#loansChart"), {
+                series: [{
+                    name: 'Loan Amount',
+                    data: [45, 32, 28, 15, 20]
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 300,
+                    animations: {
+                        enabled: true,
+                        easing: 'easeinout',
+                        speed: 800
+                    }
+                },
+                colors: ['#3498db'],
+                plotOptions: {
+                    bar: {
+                        borderRadius: 4,
+                        horizontal: false,
+                        distributed: false,
+                        columnWidth: '55%',
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                xaxis: {
+                    categories: ['Personal', 'Home', 'Education', 'Vehicle', 'Business'],
+                    title: {
+                        text: 'Loan Type'
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: 'Number of Loans'
+                    }
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(value) {
+                            return value + " loans";
+                        }
+                    }
+                }
+            });
+            loansChart.render();
+
+            // Transaction Trends Chart (Line)
+            var transactionsChart = new ApexCharts(document.querySelector("#transactionsChart"), {
+                series: [{
+                    name: "Transactions",
+                    data: [28, 29, 33, 36, 32, 32, 33, 38, 42, 45, 48, 52]
+                }],
+                chart: {
+                    height: 300,
+                    type: 'line',
+                    zoom: {
+                        enabled: false
+                    },
+                    animations: {
+                        enabled: true,
+                        easing: 'easeinout',
+                        speed: 800
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth',
+                    width: 3
+                },
+                colors: ['#9b59b6'],
+                markers: {
+                    size: 5,
+                    hover: {
+                        size: 7
+                    }
+                },
+                xaxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    title: {
+                        text: 'Month'
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: 'Transactions (count)'
+                    }
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(value) {
+                            return value + " transactions";
+                        }
+                    }
+                }
+            });
+            transactionsChart.render();
+
+            // FD Growth Chart (Area)
+            var fdChart = new ApexCharts(document.querySelector("#fdChart"), {
+                series: [{
+                    name: "FD Amount",
+                    data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+                }],
+                chart: {
+                    type: 'area',
+                    height: 300,
+                    animations: {
+                        enabled: true,
+                        easing: 'easeinout',
+                        speed: 800
+                    }
+                },
+                colors: ['#1abc9c'],
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth',
+                    width: 2
+                },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.7,
+                        opacityTo: 0.3,
+                    }
+                },
+                xaxis: {
+                    categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+                    title: {
+                        text: 'Year'
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: 'Amount (₹ lakhs)'
+                    }
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(value) {
+                            return '₹' + value + ' lakhs';
+                        }
+                    }
+                }
+            });
+            fdChart.render();
+
+            // Scroll animation for cards
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.card, .summary-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+        // Export functionality
+        document.querySelectorAll('.export-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Implement export functionality here
+                alert('Export functionality would be implemented here');
+            });
+        });
+    </script>
+</body>
+</html>

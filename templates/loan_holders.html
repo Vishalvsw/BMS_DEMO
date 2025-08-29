@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Holders</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px; /* Adjust as needed */
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .table th { /* Style table headers */
+            background-color: #007bff; /* Blue background */
+            color: white; /* White text */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>GPS Teacher Co-Operative Bank Bhalki</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Bank Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/admin_dashboard">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/generate_report">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="text-center">Loan Holders Infomations</h1>
+
+        {% if results %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Loan ID</th>
+                    <th>Full Name</th>
+                    <th>Phone</th>
+                    <th>Loan Type</th>
+                    <th>Loan Amount</th>
+                    <th>File Charge </th>
+                    <th>Interest Rate</th>
+                    <th>Remaining Balance</th>
+                    <th> Days</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Pay EMI</th>
+                    <th>Details</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for loan in results %}
+                <tr>
+                    <td>{{ loan.loan_id }}</td>
+                    <td>{{ loan.full_name }}</td>
+                    <td>{{ loan.phone }}</td>
+                    <td>{{ loan.loan_type }}</td>
+                    <td>{{ loan.loan_amount }}</td>
+                    <td>{{ loan.file_charge }}</td>
+                    <td>{{ loan.interest_rate }}%</td>
+                    <td>₹{{ loan.remaining_balance }}</td>
+                    <td>{{ loan.loan_term }}</td>
+                    <td>{{ loan.start_date }}</td>
+                    <td>{{ loan.end_date }}</td>
+                 
+                    <td>
+                        <form action="{{ url_for('premium_emi', loan_id=loan.loan_id) }}" method="post">
+                            <button type="submit" class="btn btn-success">Pay EMI</button>
+                        </form>
+                    </td>
+                    <td><a href="{{ url_for('loan_details', loan_id=loan.loan_id) }}" class="btn btn-info">View</a></td>
+                    <td><a href="{{ url_for('edit_loan', loan_id=loan.loan_id) }}" class="btn btn-warning">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% else %}
+            <p class="text-center">No loan holders found.</p>
+        {% endif %}
+
+        
+    </div>
+
+    <footer class="footer mt-5 text-center bg-dark text-white py-3">
+    <p class="mb-0">
+        &copy; 2025 GPS Teacher Co-Operative Bank Bhalki. All rights reserved. <br>
+        Powered by <strong>ViSHAL WAGARAJ</strong> – 
+        <a href="https://www.vswdatasolutions.in" target="_blank" class="text-warning text-decoration-none">
+            www.vswdatasolutions.in
+        </a>
+    </p>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

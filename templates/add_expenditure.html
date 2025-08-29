@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Expenditure</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+      --accent-color: #4cc9f0;
+      --light-color: #f8f9fa;
+      --dark-color: #212529;
+    }
+
+    body {
+      background-color: #f5f7ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .form-control, .form-select {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 0.25rem rgba(76, 201, 240, 0.25);
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--dark-color);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      width: 100%;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .optional-badge {
+      background-color: #e9ecef;
+      color: #6c757d;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2>Add Expenditure</h2>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form method="post">
+        <div class="mb-4">
+          <label for="username">Recorded By</label>
+          <input type="text" class="form-control" name="username" value="Admin" readonly>
+        </div>
+
+        <div class="mb-4">
+          <label>Amount</label>
+          <input type="number" step="0.01" class="form-control" name="amount" required placeholder="0.00">
+        </div>
+
+        <div class="mb-4">
+          <label>Charge Type</label>
+          <select name="charge_type" class="form-control" required>
+            <option value="" disabled selected>Select charge type</option>
+            <option value="Office Rent">Office Rent</option>
+            <option value="Employee Salary">Employee Salary</option>
+            <option value="Loan Disbursement">Loan Disbursement</option>
+            <option value="Electricity Bill">Electricity Bill</option>
+            <option value="Registration Charges">Registration Charges</option>
+            <option value="Raw Material">Raw Material</option>
+            <option value="Bank Charges">Bank Charges</option>
+            <option value="Meeting Expenditure">Meeting Expenditure</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label>Description <span class="optional-badge">optional</span></label>
+          <textarea class="form-control" name="description" rows="3" placeholder="Additional details about this expenditure"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit Expense</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

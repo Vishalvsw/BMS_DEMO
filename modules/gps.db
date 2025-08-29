@@ -1,0 +1,287 @@
+
+# def create_schema():
+#     with get_db_connection() as conn:
+#         conn.executescript("""
+
+#                 CREATE TABLE admins (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     username TEXT NOT NULL UNIQUE,
+#                     password TEXT NOT NULL,
+#                     email TEXT UNIQUE,
+#                     last_login DATETIME,
+#                     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+#                 );
+
+#                 CREATE TABLE accounts (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     account_number TEXT UNIQUE,
+#                     full_name TEXT NOT NULL,
+#                     father_name TEXT NOT NULL,
+#                     phone TEXT NOT NULL CHECK(length(phone) = 10),
+#                     dob TEXT NOT NULL CHECK(dob LIKE '____-__-__'),
+#                     address TEXT NOT NULL,
+#                     account_type TEXT NOT NULL,
+#                     balance REAL NOT NULL DEFAULT 0,
+#                     share_fee REAL NOT NULL DEFAULT 0,
+#                     admin_fee REAL NOT NULL DEFAULT 50,
+#                     total_shares REAL NOT NULL DEFAULT 100,
+#                     school_name TEXT NOT NULL,
+#                     status TEXT DEFAULT 'active',
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+#                 );
+
+#                 CREATE TABLE transactions (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     account_id INTEGER NOT NULL,
+#                     transaction_type TEXT NOT NULL,  -- deposit, withdrawal, emi_payment, transfer
+#                     amount REAL NOT NULL,
+#                     description TEXT,
+#                     note TEXT,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (account_id) REFERENCES accounts(id)
+#                 );
+
+
+#                 CREATE TABLE loans (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     account_id INTEGER NOT NULL,
+#                     loan_type TEXT NOT NULL,
+#                     loan_amount REAL NOT NULL,
+#                     interest_rate REAL NOT NULL,
+#                     loan_term INTEGER NOT NULL,
+#                     nominee_name TEXT,
+#                     nominee_id TEXT,
+#                     file_charge REAL,
+#                     insert_amount REAL,
+#                     remaining_balance REAL,
+#                     status TEXT DEFAULT 'active',
+#                     start_date DATE,
+#                     end_date  DATE,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (account_id) REFERENCES accounts(id)
+#                 );
+
+#                 CREATE TABLE fd_accounts (
+#                     fd_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     account_id INTEGER NOT NULL,
+#                     amount REAL NOT NULL,
+#                     interest_rate REAL NOT NULL,
+#                     maturity_date TEXT NOT NULL,
+#                     fd_date TEXT NOT NULL,
+#                     status TEXT DEFAULT 'active',
+#                     interest_amount REAL NOT NULL,
+#                     total_amount REAL NOT NULL,
+#                     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (account_id) REFERENCES accounts(id)
+#                 );
+
+#                 CREATE TABLE emi_payments (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     loan_id INTEGER NOT NULL,
+#                     emi_amount REAL NOT NULL,
+#                     remaining_balance REAL,         
+#                     interest_amount REAL,        
+#                     payment_date TEXT DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (loan_id) REFERENCES loans(id)
+#                 );
+
+#                 CREATE TABLE closed_accounts (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     account_id INTEGER NOT NULL,
+#                     full_name TEXT NOT NULL,
+#                     phone TEXT NOT NULL,
+#                     dob TEXT NOT NULL,
+#                     address TEXT NOT NULL,
+#                     account_type TEXT NOT NULL,
+#                     balance REAL NOT NULL,
+#                     closed_at DATETIME DEFAULT CURRENT_TIMESTAMP
+                    
+#                 );
+#                 CREATE TABLE admin (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     username TEXT NOT NULL UNIQUE,
+#                     password TEXT NOT NULL
+#                 );
+#                 CREATE TABLE fd_transactions (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     fd_id INTEGER NOT NULL,
+#                     transaction_type TEXT NOT NULL,  -- deposit, withdrawal, maturity
+#                     amount REAL NOT NULL,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (fd_id) REFERENCES fd_accounts(fd_id)
+#                 );  
+#                 CREATE TABLE share_transactions (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     account_id INTEGER NOT NULL,
+#                     transaction_type TEXT NOT NULL,  -- buy, sell
+#                     shares REAL NOT NULL,
+#                     share_fee REAL NOT NULL,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (account_id) REFERENCES accounts(id)
+#                 );
+                
+                
+                
+                
+                
+# CREATE TABLE IF NOT EXISTS expenditures (
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     account_id INTEGER,
+#     name TEXT,
+#     amount REAL NOT NULL,
+#     category_id INTEGER NOT NULL,
+#     description TEXT,
+#     financial_year TEXT NOT NULL,
+#     recorded_by TEXT NOT NULL,
+#     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+#     FOREIGN KEY (category_id) REFERENCES expense_categories(category_id)
+    
+# );
+
+
+#                 CREATE TABLE share_fee (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     account_id INTEGER NOT NULL,
+#                     fee_amount REAL NOT NULL,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (account_id) REFERENCES accounts(id)
+#                 );
+#                 CREATE TABLE admin_fee (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     account_id INTEGER NOT NULL,
+#                     fee_amount REAL NOT NULL,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (account_id) REFERENCES accounts(id)
+#                 );
+#                 CREATE TABLE EXPENDITURES (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     expenditure_type TEXT NOT NULL,
+#                     amount REAL NOT NULL,
+#                     description TEXT,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+#                 );
+#                 CREATE TABLE INCOME (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     income_type TEXT NOT NULL,
+#                     amount REAL NOT NULL,
+#                     description TEXT,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+#                 );
+#                 CREATE TABLE bank_details (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     bank_name TEXT NOT NULL,
+#                     branch_name TEXT NOT NULL,
+#                     account_number TEXT NOT NULL UNIQUE,
+#                     ifsc_code TEXT NOT NULL UNIQUE,
+#                     swift_code TEXT,
+#                     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+#                 );      
+#                 CREATE TABLE bank_transactions (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     bank_id INTEGER NOT NULL,
+#                     transaction_type TEXT NOT NULL,  -- deposit, withdrawal, transfer
+#                     amount REAL NOT NULL,
+#                     description TEXT,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (bank_id) REFERENCES bank_details(id)
+#                 );
+#                 CREATE TABLE bank_loans (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     bank_id INTEGER NOT NULL,
+#                     loan_type TEXT NOT NULL,
+#                     loan_amount REAL NOT NULL,
+#                     interest_rate REAL NOT NULL,
+#                     loan_term INTEGER NOT NULL,
+#                     nominee_name TEXT,
+#                     nominee_id TEXT,
+#                     file_charge REAL,
+#                     insert_amount REAL,
+#                     remaining_balance REAL,
+#                     status TEXT DEFAULT 'active',
+#                     start_date DATE,
+#                     end_date  DATE,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (bank_id) REFERENCES bank_details(id)
+#                 );
+#                 CREATE TABLE bank_emi_payments (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     bank_loan_id INTEGER NOT NULL,
+#                     emi_amount REAL NOT NULL,
+#                     remaining_balance REAL,         
+#                     interest_amount REAL,        
+#                     payment_date TEXT DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (bank_loan_id) REFERENCES bank_loans(id)
+#                 );
+#                 CREATE TABLE fd_accounts (
+#                     fd_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     bank_id INTEGER NOT NULL,
+#                     fd_amount REAL NOT NULL,
+#                     interest_rate REAL NOT NULL,
+#                     maturity_date TEXT NOT NULL,
+#                     fd_date TEXT NOT NULL,
+#                     status TEXT DEFAULT 'active',
+#                     interest_amount REAL NOT NULL,
+#                     total_amount REAL NOT NULL,
+#                     status TEXT DEFAULT 'active',
+#                     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (bank_id) REFERENCES bank_details(id)
+#                 );
+#                 CREATE TABLE bank_fd_transactions (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     fd_id INTEGER NOT NULL,
+#                     transaction_type TEXT NOT NULL,  -- deposit, withdrawal, maturity
+#                     amount REAL NOT NULL,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (fd_id) REFERENCES fd_accounts(fd_id)
+#                 );
+#                 CREATE TABLE bank_share_transactions (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     bank_id INTEGER NOT NULL,
+#                     transaction_type TEXT NOT NULL,  -- buy, sell
+#                     shares REAL NOT NULL,
+#                     share_fee REAL NOT NULL,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (bank_id) REFERENCES bank_details(id)
+#                 );
+#                 CREATE TABLE bank_share_fee (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     bank_id INTEGER NOT NULL,
+#                     fee_amount REAL NOT NULL,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (bank_id) REFERENCES bank_details(id)
+#                 );
+#                 CREATE TABLE bank_admin_fee (
+#                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                     bank_id INTEGER NOT NULL,
+#                     fee_amount REAL NOT NULL,
+#                     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+#                     FOREIGN KEY (bank_id) REFERENCES bank_details(id)
+#                 );
+                
+
+
+#             """)
+            
+
+
+
+
+
+# # Add a default admin user
+#         try:
+#             conn.execute("INSERT INTO admin (username, password) VALUES (?, ?)", 
+#                          ("admin", hash_password("admin123")))
+#             conn.commit()
+#         except sqlite3.IntegrityError:
+#             pass
+
+# def parse_date(date_str):
+#     try:
+#         return datetime.strptime(date_str, "%Y-%m-%d").date() if date_str else None
+#     except ValueError:
+#         raise ValueError(f"Invalid date format: {date_str}")
+
+
+
+# # Initialize the database when the app starts
+# initialize_database()

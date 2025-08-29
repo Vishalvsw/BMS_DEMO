@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Accounts</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Search Accounts</h1>
+        <form method="POST" class="row g-3">
+            <div class="col-md-8">
+                <input type="text" name="query" class="form-control" placeholder="Search by ID, Name, or Phone" required>
+            </div>
+            <div class="col-md-4 text-center">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <a href="/admin_dashboard" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+        <div class="mt-5">
+            {% if results %}
+                <h2>Search Results:</h2>
+                <table class="table table-bordered table-striped mt-3">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Account ID</th>
+                            <th>Full Name</th>
+                            <th>Phone</th>
+                            <th>Account Type</th>
+                            <th>Balance</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for account in results %}
+                            <tr>
+                                <td>{{ account['id'] }}</td>
+                                <td>{{ account['full_name'] }}</td>
+                                <td>{{ account['phone'] }}</td>
+                                <td>{{ account['account_type'] }}</td>
+                                <td>{{ account['balance'] }}</td>
+                                <td>{{ account['address'] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-center mt-5">No results found. Try another search.</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

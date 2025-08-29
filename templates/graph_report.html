@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Overview - Graph Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid #dee2e6;
+        }
+        .footer p {
+            margin: 0;
+            color: #555;
+        }
+        .dashboard-section {
+            margin-top: 30px;
+        }
+        .stat-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .stat-box h3 {
+            font-size: 2rem;
+            color: #007bff;
+        }
+        .stat-box p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .active-accounts {
+            color: green;
+        }
+        .closed-accounts {
+            color: red;
+        }
+        .transactions {
+            color: blue;
+        }
+        .loans {
+            color: purple;
+        }
+        .profit-loss {
+            color: orange;
+        }
+        .graph-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .graph-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .overview-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Bank Overview Dashboard</h1>
+        <p>Providing an insightful look at the bank's current operations</p>
+    </div>
+
+    <div class="container">
+        <div class="overview-section">
+            <h2>Overview of the Bank</h2>
+            <p>Here is an overview of the bank's current status, including the number of active accounts, closed accounts, transactions, total loans, and profit/loss.</p>
+        </div>
+
+        <div class="dashboard-section">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="stat-box">
+                        <h3>Active Accounts</h3>
+                        <p class="active-accounts">{{ active_accounts }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box">
+                        <h3>Closed Accounts</h3>
+                        <p class="closed-accounts">{{ closed_accounts }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box">
+                        <h3>Total Transactions</h3>
+                        <p class="transactions">{{ total_transactions }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="stat-box">
+                        <h3>Total Loans</h3>
+                        <p class="loans">${{ total_loans }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box">
+                        <h3>Profit/Loss</h3>
+                        <p class="profit-loss">${{ profit_loss }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box">
+                        <h3>Total Balance</h3>
+                        <p>${{ total_balance }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="graph-container">
+            <h3>Bank Overview Graph</h3>
+            <img src="data:image/png;base64,{{ graph_url }}" alt="Bank Overview Graph">
+        </div>
+
+        <div class="overview-section text-center mt-5">
+            <h4>Actions</h4>
+            <div class="row justify-content-center">
+                <div class="col-md-2">
+                    <a href="/create_account" class="btn btn-primary btn-block">Create Account</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/deposit" class="btn btn-success btn-block">Deposit</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/loans" class="btn btn-warning btn-block">Loans</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/create_fd" class="btn btn-info btn-block">Create FD</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/close_account" class="btn btn-danger btn-block">Close Account</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/admin_dashboard" class="btn btn-secondary btn-block">Back</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer mt-5 text-center bg-dark text-white py-3">
+    <p class="mb-0">
+        &copy; 2025 GPS Teacher Co-Operative Bank Bhalki. All rights reserved. <br>
+        Powered by <strong>ViSHAL WAGARAJ</strong> – 
+        <a href="https://www.vswdatasolutions.in" target="_blank" class="text-warning text-decoration-none">
+            www.vswdatasolutions.in
+        </a>
+    </p>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

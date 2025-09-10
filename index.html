@@ -1,1 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #e9ecef; /* Bank background color */
+        }
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #343a40;
+            color: white;
+            width: 240px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #495057;
+        }
+        .sidebar-header img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .sidebar-header h4 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #fff;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .user-profile {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #495057;
+            margin-top: auto;
+        }
+        .user-profile img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .sidebar-header h3{
+            font-size: 2rem;
+            margin: 0;
+            color:rgb(233, 177, 8); /* Username color */
+        }
+        .sidebar-header h4 {
+            font-size: 1.2rem;
+            margin: 0;
+            color:rgb(232, 234, 203); /* Username color */
+        }
+        .main-content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .card-text {
+            color: #6c757d;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        /* Specific Card Colors Based on Titles */
+        .card-create-account { background-color: #28a745; }
+        .card-transaction { background-color: #007bff; }
+        .card-loans { background-color: #17a2b8; }
+        .card-fd { background-color: #ffc107; }
+        .card-loan-holders { background-color: #fd7e14; }
+        .card-customer-profile { background-color: #6f42c1; }
+        .card-fd-holders { background-color: #20c997; }
+        .card-reports { background-color: #6610f2; }
+        .card-analytics { background-color: #e83e8c; }
 
+        /* Styling for the collapsible links */
+        .nested {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .heading-box {
+                background-color: #007bff; /* Background color */
+                color: white; /* Text color */
+                padding: 20px; /* Padding around the text */
+                border-radius: 10px; /* Rounded corners */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for a 3D effect */
+                font-size: 2rem; /* Font size */
+                font-weight: bold; /* Bold text */
+                max-width: 90%; /* Optional: Limits the width of the box */
+                margin: 0 auto; /* Center the heading horizontally */
+        }
+        
+        .footer {
+    background-color: #343a40;
+    color: white;
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.95rem;
+}
+   
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column">
+        <div class="sidebar-header">
+            <img src="{{ url_for('static', filename='image/circle logo.ico') }}" class="img-fluid mb-2" style="width: 120px;" alt="Bank Logo">
+            <h6>GPS Teacher Co-Operative Bank</h6>
+        </div>
+        <div class="sidebar-header">
+            <!-- Display Username Here -->
+            <h6>{{ username }}</h6>
+
+        </div>
+
+        <!-- Navigation Links (Tree Form) -->
+        <a href="/">Home</a>
+
+        <div>
+            <a href="javascript:void(0);" onclick="toggleMenu('account-management')">Account Management</a>
+            <div id="account-management" class="nested">
+                <a href="/create_account">Create Account</a>
+                <a href="/close_account">Close Account</a>
+                <a href="/account_list">Accounts List</a>
+            </div>
+        </div>
+
+        <div>
+            <a href="javascript:void(0);" onclick="toggleMenu('transactions')">Transactions</a>
+            <div id="transactions" class="nested">
+                <a href="/transaction">Transaction</a>
+                <a href="/generate_report">Generate Report</a>
+            </div>
+        </div>
+
+        <div>
+            <a href="javascript:void(0);" onclick="toggleMenu('loans')">Loans</a>
+            <div id="loans" class="nested">
+                <a href="/loans">Loans</a>
+                <a href="/loan_holders">Loan Holders</a>
+            </div>
+        </div>
+
+        
+
+        <div>
+            <a href="javascript:void(0);" onclick="toggleMenu('fd')">Fixed Deposits</a>
+            <div id="fd" class="nested">
+                <a href="/create_fd">Fixed Deposit</a>
+                <a href="/fd_holders">FD Holders</a>
+            </div>
+        </div>
+
+        <div>
+            <a href="javascript:void(0);" onclick="toggleMenu('customer-profiles')">Customer Profiles</a>
+            <div id="customer-profiles" class="nested">
+                <a href="/customer_profile">Customer Profile</a>
+            </div>
+        </div>
+
+        <a href="/logout" class="btn btn-danger btn-sm mt-2">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h6 class="text-center mb-4 heading-box">Welcome to GPS Teacher Co-Operative Bank Bhalki</h6>
+
+        <div class="row g-4">
+            <!-- Create Account -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-create-account">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Create Account</h5>
+                        <p class="card-text text-white">Add a new account for customers.</p>
+                        <a href="/create_account" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Premium EMI Card (Simplified) -->
+<div class="col-lg-4 col-md-6">
+    <div class="card shadow text-center card-premium-emi bg-dark">
+        <div class="card-body">
+            <h5 class="card-title text-white">Premium EMI</h5>
+            <p class="card-text text-white mb-3">Make EMI payments for existing loans</p>
+            <a href="/loan_holders" class="btn btn-outline-success">💰 Pay EMI</a>
+            <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        </div>
+    </div>
+</div>
+            <!-- Transaction -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-transaction">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Transaction</h5>
+                        <p class="card-text text-white">Deposit or withdraw funds.</p>
+                        <a href="/transactions" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loans -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-loans">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Loans</h5>
+                        <p class="card-text text-white">Manage customer loans.</p>
+                        <a href="/loans" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fixed Deposit -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-fd">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Fixed Deposits</h5>
+                        <p class="card-text text-white">Create and manage FDs.</p>
+                        <a href="/create_fd" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loan Holders -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-loan-holders">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Loan Holders</h5>
+                        <p class="card-text text-white">View all loan holders.</p>
+                        <a href="/loan_holders" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Profile -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-customer-profile">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Customer Profile</h5>
+                        <p class="card-text text-white">Search and view account details.</p>
+                        <a href="/customer_profile" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FD Holders -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-fd-holders">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">FD Holders</h5>
+                        <p class="card-text text-white">View all FD holders.</p>
+                        <a href="/fd_holders" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-reports">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Reports</h5>
+                        <p class="card-text text-white">Generate bank reports.</p>
+                        <a href="/generate_report" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+<div class="col-lg-4 col-md-6">
+    <div class="card shadow text-center bg-warning">
+        <div class="card-body">
+            <h5 class="card-title text-dark">💸 Expenditure</h5>
+            <p class="card-text text-dark">View income vs. expenses and profit summary</p>
+            <a href="{{ url_for('expenditure') }}" class="btn btn-dark">📊 View Report</a>
+        </div>
+    </div>
+</div>
+
+
+
+            <!-- Analytical Views -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow text-center card-analytics">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Download Excel</h5>
+                        <p class="card-text text-white">View all data in Excel files.</p>
+                        <a href="/index" class="btn btn-light">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+<footer class="footer mt-5 text-center bg-dark text-white py-3">
+    <p class="mb-0">
+        &copy; 2025 GPS Teacher Co-Operative Bank Bhalki. All rights reserved. <br>
+        Powered by <strong>ViSHAL WAGARAJ</strong> – 
+        <a href="https://www.vswdatasolutions.in" target="_blank" class="text-warning text-decoration-none">
+            www.vswdatasolutions.in
+        </a>
+    </p>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Prevent going back to dashboard after logout
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function() {
+    history.pushState(null, null, document.URL);
+    // Optional: force logout if they try to go back
+    fetch('/logout', {method: 'POST'})
+        .then(() => window.location.href = '/login');
+});
+</script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleMenu(id) {
+            var element = document.getElementById(id);
+            element.classList.toggle('active');
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
